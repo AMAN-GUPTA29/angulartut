@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Angular Tut</title>
+    <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="app/lib/angular.min.js"></script>
+    <script src="app/app.js"></script>
+  </head>
+  <body ng-app="myNinjaApp">
+    <div ng-controller="NinjaController">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Likes
+            </th>
+            <th>
+              Dislikes
+            </th>
+            <th>
+              Like/Dislike
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="technology in technologies">
+            <td>{{technology.name}}</td>
+            <td>{{technology.likes}}</td>
+            <td>{{technology.dislikes}}</td>
+            <td>
+              <input type="button" value="Like" ng-click="increaseLikes(technology)" />
+              <input type="button" value="Dislike" ng-click="increaseDislikes(technology)" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html> 
