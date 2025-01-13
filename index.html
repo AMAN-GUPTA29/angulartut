@@ -39,5 +39,34 @@
         </tbody>
       </table>
     </div>
+    <br>
+    <hr>
+    <br>
+    <div ng-controller="NinjaController2">
+      Rows To Display <input type="number" step="1" min="0" max="5" ng-model="rowLimit" />
+      <br/><br/>
+      <table>
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Date of Birth</th>
+              <th>Gender</th>
+              <th>Salary (number filter)</th>
+              <th>Salary (currency filter)</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="employee in employees | limitTo:rowLimit">
+            <td> {{ employee.name | uppercase }} </td>
+            <td> {{ employee.dateOfBirth | date:"dd/MM/yyyy" }} </td>
+            <td> {{ employee.gender }} </td>
+            <td> {{ employee.salary | number:2 }} </td>
+            <td> {{ employee.salary | currency : "£" : 1 }} </td>
+        </tr>
+    </tbody>
+      </table>
+
+    </div>
+    <hr>
   </body>
 </html> 
